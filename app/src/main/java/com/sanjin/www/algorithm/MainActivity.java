@@ -1,4 +1,4 @@
-package com.sanjin.algorithm;
+package com.sanjin.www.algorithm;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

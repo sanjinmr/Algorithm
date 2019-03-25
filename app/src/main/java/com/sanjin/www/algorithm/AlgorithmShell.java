@@ -1,4 +1,4 @@
-package com.sanjin.algorithm;
+package com.sanjin.www.algorithm;
 
 /**
  * author: sanji

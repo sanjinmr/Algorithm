@@ -1,4 +1,4 @@
-package com.sanjin.algorithm;
+package com.sanjin.www.algorithm;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.sanjin.algorithm", appContext.getPackageName());
+        assertEquals("com.sanjin.www.algorithm", appContext.getPackageName());
     }
 }

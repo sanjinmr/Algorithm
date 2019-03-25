@@ -1,4 +1,4 @@
-package com.sanjin.algorithm;
+package com.sanjin.www.algorithm;
 
 import org.junit.Test;
 
@@ -19,7 +19,8 @@ public class ExampleUnitTest {
     public void shellAlgorithmTest() {
         int[] a = {80, 30, 60, 40, 20, 10, 50, 70};
 
-        AlgorithmShell.shellSort2(a, a.length);
+        //AlgorithmShell.shellSort2(a, a.length);
+        AlgorithmShell1.shellSort(a, a.length);
 
         System.out.println("");
         System.out.println("排序后：");
