@@ -27,7 +27,7 @@ public class AlgorithmShell {
         }
     }
 
-    public static void shellSort2(int[] a, int n) {
+    public static void shellSort(int[] a, int n) {
         int sum = 0;
         for (int gap = n / 2; gap > 0; gap /= 2) {
             System.out.println("\n<=========>");
