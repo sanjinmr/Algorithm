@@ -6,54 +6,54 @@ public class MaxHeapSort2 {
 
     // 求parent/left child/right child:
 
-    protected int parent(int i) {return (i - 1) / 2;}
-    protected int left(int i) {return 2 * i + 1;}
-    protected int right(int i) {return 2 * i + 2;}
+    private int parent(int i) {return (i - 1) / 2;}
+    private int left(int i) {return 2 * i + 1;}
+    private int right(int i) {return 2 * i + 2;}
 
     // 保持最大堆特性：
 
-    protected void maxHeapify(int[] A, int heapsize, int i){
+    private void maxHeapAdjust(int[] array, int heapsize, int i) {
         int left = left(i);
         int right = right(i);
         int largest = i;
-        if (left <= heapsize - 1 && A[left] > A[i]) {
+        if (left <= heapsize - 1 && array[left] > array[i]) {
             largest = left;
         }
-        if (right <= heapsize - 1 && A[right] > A[largest]) {
+        if (right <= heapsize - 1 && array[right] > array[largest]) {
             largest = right;
         }
         if (largest != i) {
-            int temp = A[i];
+            int temp = array[i];
             // swap
-            A[i] = A[largest];
-            A[largest] = temp;
-            maxHeapify(A, heapsize, largest);
+            array[i] = array[largest];
+            array[largest] = temp;
+            maxHeapAdjust(array, heapsize, largest);
         }
     }
 
     // 构造一个“最大堆”：
 
-    public void buildMaxHeap(int[] A, int heapsize){
+    private void buildMaxHeap(int[] array, int heapsize) {
         for (int i = parent(heapsize - 1); i >= 0; i --) {
-            maxHeapify(A, heapsize, i);
+            maxHeapAdjust(array, heapsize, i);
         }
     }
 
     // 对一个array使用heapsort:
 
-    public void heapsort(int[] A){
-        int heapsize = A.length;
+    public void heapsort(int[] array){
+        int heapsize = array.length;
 
-        buildMaxHeap(A, heapsize);
+        buildMaxHeap(array, heapsize);
 
         int step = 1;
-        for (int i = A.length - 1; i > 0; i --) {
-            int temp = A[i];
-            A[i] = A[0];
-            A[0] = temp;
+        for (int i = array.length - 1; i > 0; i --) {
+            int temp = array[i];
+            array[i] = array[0];
+            array[0] = temp;
             heapsize --;
             System.out.println("Step: " + (step++) + Arrays.toString(A));
-            maxHeapify(A, heapsize, 0);
+            maxHeapAdjust(array, heapsize, 0);
         }
     }
 
@@ -61,10 +61,10 @@ public class MaxHeapSort2 {
 
     public void test() {
         //a sample input
-        int[] A = {3, 7, 2, 11, 3, 4, 9, 2, 18, 0};
-        System.out.println("Input: " + Arrays.toString(A));
-        heapsort(A);
-        System.out.println("Output: " + Arrays.toString(A));
+        int[] array = {3, 7, 2, 11, 3, 4, 9, 2, 18, 0};
+        System.out.println("Input: " + Arrays.toString(array));
+        heapsort(array);
+        System.out.println("Output: " + Arrays.toString(array));
     }
 
     /*
