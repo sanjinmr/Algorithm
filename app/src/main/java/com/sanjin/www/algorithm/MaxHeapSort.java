@@ -31,17 +31,19 @@ public class MaxHeapSort {
     }
 
     public void heapSort(int[] array) {
-        // 循环建立初始堆
+        // 循环建立初始堆：从下往上排序
         for (int i = parent(array.length - 1); i >= 0; i --) {
-            maxHeapAdjust(array, i, array.length - 1);
+			// 从尾部递增向上排序：大的上去，小的下来，尾部边界是数组末尾
+            maxHeapAdjust(array, i, array.length);
         }
-        // 进行n-1次循环，完成排序
+        // 进行n-1次循环，完成排序：从上往下排序
         for (int i = array.length - 1; i > 0; i --) {
             // 最后一个元素和第一元素进行交换
             int temp = array[i];
             array[i] = array[0];
             array[0] = temp;
             // 筛选 R[0] 结点，得到i-1个结点的堆
+			// 整理，将剩余的元素整理成堆：每次从最上面开始排序，尾部递减
             maxHeapAdjust(array, 0, i);
         }
     }

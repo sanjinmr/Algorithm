@@ -2,6 +2,7 @@ package com.sanjin.www.algorithm;
 
 import java.util.Arrays;
 
+@Deprecated
 public class MaxHeapSort2 {
 
     // 求parent/left child/right child:
