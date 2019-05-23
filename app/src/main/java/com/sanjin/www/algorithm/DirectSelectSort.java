@@ -17,7 +17,7 @@ package com.sanjin.www.algorithm;
 	 
 	 public void selectSort(int[] a, int n) {
 		 if (n > a.length) {
-			 System.out.println("超出数组长度");
+			System.out.println("超出数组长度");
 			System.exit(1);
 		 }
 		 
@@ -25,12 +25,12 @@ package com.sanjin.www.algorithm;
 		 // 从排序区间选择一个认为是最小的元素放在排序区间前面
 		 // i表示次数，共进行n-1次选择和交换
 		 for (int i = 1; i < n; i ++) {
-			// minIndex表示最小元素的小标。
+			// minIndex表示最小元素的下标。
 			// 默认排序区间前面第一个元素为最小。
 			int minIndex = i -1;
 			// 找到当前排序区间最小元素的下标
 			for (int j = i; j < n; j ++) {
-				if (a[minIndex] > a[j]) {
+				if (a[j] < a[minIndex]) {
 					// 如果后面的元素小于当前最小元素，则记录下最小元素的下标
 					minIndex = j;
 				}
