@@ -1,5 +1,8 @@
 package com.sanjin.www.algorithm;
 
+/**
+ * 直接插入排序
+ */
 public class InsertSort {
 
     public static void insertShort(int [] a,  int n) {

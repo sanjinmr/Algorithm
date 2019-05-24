@@ -4,7 +4,7 @@ package com.sanjin.www.algorithm;
  * author: sanji
  * email: sanjinmr@sina.com
  * time: 2019/3/14
- * desc:
+ * desc: 附带log。用于分析
  * note:
  */
 public class AlgorithmShell1 {
