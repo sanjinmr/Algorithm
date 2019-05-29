@@ -53,7 +53,7 @@ public class MaxHeapSort2 {
             array[i] = array[0];
             array[0] = temp;
             heapsize --;
-            System.out.println("Step: " + (step++) + Arrays.toString(A));
+            System.out.println("Step: " + (step++) + Arrays.toString(array));
             maxHeapAdjust(array, heapsize, 0);
         }
     }

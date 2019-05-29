@@ -72,7 +72,7 @@ public class MaxHeapSort1 {
         array[0] = array[array.length - 1];
         array[array.length - 1] = -99999;
         // 对此时的根节点进行向下调整
-        adjustDownToUp(array, 0, array.length);
+        maxHeapAdjust(array, 0, array.length);
         return array;
     }
 

@@ -29,4 +29,9 @@ public class ExampleUnitTest {
         }
         System.out.println("");
     }
+
+    @Test
+    public void quickSort() {
+        new QuickSort().test();
+    }
 }
