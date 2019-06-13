@@ -13,8 +13,40 @@ package com.sanjin.www.algorithm;
  通过n-i次关键字间的比较，从n-i+1个记录(选择区间)中，选择出关键字最小的记录，并和第i(1<=i<=n)个记录交换之。
  
  */
- public class DirectSelectSort {
-	 
+ public class SimpleSelectSort {
+
+	/**
+	 * 选择区间从0~n-1开始。比从1~n-1开始，多遍历一次索引为0的情况。
+	 * 推荐使用：selectSort
+	 * @param a
+	 * @param n
+	 */
+	public void selectSort0(int[] a, int n) {
+		if (n > a.length) {
+			System.out.println("超出数组长度");
+			System.exit(1);
+		}
+
+		for (int i = 0; i < n; i ++) {
+			int minIndex = i;
+			for (int j = i; j < n; j ++) {
+				if (a[j] < a[minIndex]) {
+					minIndex = j;
+				}
+			}
+			if (minIndex != i) {
+				int temp = a[i];
+				a[i] = a[minIndex];
+				a[minIndex] = temp;
+			}
+		}
+	}
+
+	/**
+	 * 默认首位有序，选择区间从1~n-1开始
+	 * @param a
+	 * @param n
+	 */
 	 public void selectSort(int[] a, int n) {
 		 if (n > a.length) {
 			System.out.println("超出数组长度");

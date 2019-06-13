@@ -12,7 +12,44 @@ public class MaxHeapSort1 {
 
     // 建立大根堆的方法：
 
-    // 将元素array[parent]自下往上逐步调整树形结构
+    /**
+     * 将元素array[parent]自下往上逐步调整树形结构
+     * @param array
+     * @param parent
+     * @param length
+     */
+    private void maxHeapAdjust0(int[] array, int parent, int length) {
+        for(int child = left(parent); child < length; child = left(child)) {
+            // child为初始化为节点parent的左孩子，沿节点较大的子节点向下调整
+            if(child + 1 < length && array[child] < array[child + 1]) {
+                // 取节点较大的子节点的下标
+                // 如果节点的右孩子>左孩子，则取右孩子节点的下标
+                child ++;
+            }
+            if(array[parent] >= array[child]){
+                // 根节点 >=左右子女中关键字较大者，调整结束
+                break;
+            }else{
+                // 根节点 <左右子女中关键字较大者
+                // 将左右子结点中较大值array[i]调整到双亲节点上
+                int temp = array[parent];
+                array[parent] = array[child];
+                array[child] = temp;
+
+                //【关键】修改parent值，以便继续向下调整
+                parent = child;
+            }
+        }
+    }
+
+    /**
+     * 优化maxHeapAdjust0，每一次遍历都交互parent和child，浪费了时间和空间。
+     * 减少交换，优化为赋值。
+     * 将元素array[parent]自下往上逐步调整树形结构
+     * @param array
+     * @param parent
+     * @param length
+     */
     private void maxHeapAdjust(int[] array, int parent, int length) {
         int temp = array[parent];
         for(int child = left(parent); child < length; child = left(child)) {    

@@ -40,7 +40,11 @@ public class ExampleUnitTest {
         int[] a = {9, 8, 7, 80, 30, 60, 11, 2, 40, 20, 11, 11, 6, 10, 50, 70, 3, 1, 0, 4, 5, 11};
 
         //AlgorithmShell.shellSort2(a, a.length);
-        InsertDirectSort.insertSort2(a, a.length);
+        //InsertDirectSort.insertSort2(a, a.length);
+
+        //new SimpleSelectSort().selectSort0(a, a.length);
+
+        new MaxHeapSort1().heapSort(a);
 
         System.out.println("");
         System.out.println("排序后：");
