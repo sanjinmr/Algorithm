@@ -34,4 +34,19 @@ public class ExampleUnitTest {
     public void quickSort() {
         new QuickSort().test();
     }
+
+    @Test
+    public void sortTest() {
+        int[] a = {9, 8, 7, 80, 30, 60, 11, 2, 40, 20, 11, 11, 6, 10, 50, 70, 3, 1, 0, 4, 5, 11};
+
+        //AlgorithmShell.shellSort2(a, a.length);
+        InsertDirectSort.insertSort2(a, a.length);
+
+        System.out.println("");
+        System.out.println("排序后：");
+        for (int i = 0; i < a.length; i ++) {
+            System.out.print(a[i] + "; ");
+        }
+        System.out.println("");
+    }
 }
