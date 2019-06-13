@@ -9,6 +9,13 @@ package com.sanjin.www.algorithm;
  */
 public class AlgorithmShell {
 
+    /**
+     * 插入排序： 普通插入排序的步长改为了gap
+     * @param a
+     * @param n
+     * @param i
+     * @param gap
+     */
     public static void groupSort(int[] a, int n, int i, int gap) {
         System.out.println(" ,gap: " + gap);
         for (int j = i + gap; j < n; j += gap) {
@@ -21,6 +28,27 @@ public class AlgorithmShell {
                     a[k +gap] = a[k];
                     k -= gap;
                     System.out.println(" ,k1: " + k);
+                }
+                a[k + gap] = temp;
+            }
+        }
+    }
+
+    /**
+     * 插入排序： 普通插入排序的步长改为了gap
+     * 将插入排序部分的while循环改为for循环，本质相同
+     * @param a
+     * @param n
+     * @param i
+     * @param gap
+     */
+    public static void groupSort1(int[] a, int n, int i, int gap) {
+        int k;
+        for (int j = i + gap; j < n; j += gap) {
+            if (a[j] < a[j - gap]) {
+                int temp = a[j];
+                for (k = j - gap; k >=0 && a[k] > temp; k = k - gap) {
+                    a[k +gap] = a[k];
                 }
                 a[k + gap] = temp;
             }
