@@ -1,4 +1,4 @@
-package com.sanjin.www.algorithm;
+package com.sanjin.www.algorithm.insertsort.directinsert;
 
 /**
  * 直接插入排序
@@ -13,7 +13,7 @@ package com.sanjin.www.algorithm;
  * 2、需要知道，该方法默认在前面已排序的位置是有序的。默认索引为0的元素有序。
  * 从索引为1的元素开始让后面的元素有序。
  */
-public class InsertDirectSort {
+public class DirectInsertSort {
 
     /**
      * 严格标准的写法：

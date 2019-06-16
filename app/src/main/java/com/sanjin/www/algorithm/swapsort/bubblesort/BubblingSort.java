@@ -1,4 +1,4 @@
-package com.sanjin.www.algorithm;
+package com.sanjin.www.algorithm.swapsort.bubblesort;
 
 /**
  * 冒牌排序思想：
@@ -8,6 +8,16 @@ package com.sanjin.www.algorithm;
  * （3）一共比较n-1次
  */
 public class BubblingSort {
+
+    // -------- 功能函数 -------------------------------------
+
+    public static void swap(int[] a, int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
+    // ------- 算法实现 --------------------------------------
 
     /**
      * 这是一个最基本的冒泡排序。
@@ -28,7 +38,6 @@ public class BubblingSort {
             }
         }
     }
-
 
     /**
      *
@@ -66,6 +75,28 @@ public class BubblingSort {
             }
             // 减少一次遍历的尾边界
             k --;
+        }
+    }
+
+    /**
+     * 当然，使用for循环同样是都可以的。
+     *
+     * 对bubbleSort2进行改造：while循环改为for循环
+     * @param a
+     * @param n
+     */
+    public static void bubbleSort21(int[] a, int n) {
+        // flag记住是否发生了交换。开始的时候，默认需要交换
+        boolean flag = true;
+        for (int i = 0; flag && i < n - 1; i ++) {
+            flag = false;
+            for (int j = 0; j < n -1; j ++) {
+                if (a[j] > a[j + 1]) {
+                    swap(a, j , j + 1);
+
+                    flag = true;
+                }
+            }
         }
     }
 

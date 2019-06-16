@@ -1,4 +1,4 @@
-package com.sanjin.www.algorithm;
+package com.sanjin.www.algorithm.swapsort.quicksort;
 
 /**
  * 单侧遍历时，及时交换

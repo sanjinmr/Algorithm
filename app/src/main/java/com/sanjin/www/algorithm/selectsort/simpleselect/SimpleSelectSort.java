@@ -1,4 +1,4 @@
-package com.sanjin.www.algorithm;
+package com.sanjin.www.algorithm.selectsort.simpleselect;
 
 /**
  * author: sanji

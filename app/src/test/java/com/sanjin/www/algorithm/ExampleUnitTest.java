@@ -1,5 +1,9 @@
 package com.sanjin.www.algorithm;
 
+import com.sanjin.www.algorithm.swapsort.bubblesort.BubblingSort;
+import com.sanjin.www.algorithm.swapsort.quicksort.QuickSort;
+import com.sanjin.www.algorithm.insertsort.shellsort.AlgorithmShell1;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -44,7 +48,9 @@ public class ExampleUnitTest {
 
         //new SimpleSelectSort().selectSort0(a, a.length);
 
-        new MaxHeapSort1().heapSort(a);
+        //new MaxHeapSort1().heapSort(a);
+
+        BubblingSort.bubbleSort4(a, a.length);
 
         System.out.println("");
         System.out.println("排序后：");

@@ -1,4 +1,4 @@
-package com.sanjin.www.algorithm;
+package com.sanjin.www.algorithm.swapsort.quicksort;
 
 /**
  * 两侧遍历后，再交换 将递归和partition搞一起的
