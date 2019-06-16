@@ -50,7 +50,7 @@ public class ExampleUnitTest {
 
         //new MaxHeapSort1().heapSort(a);
 
-        BubblingSort.bubbleSort4(a, a.length);
+        BubblingSort.bubbleSort22(a, a.length);
 
         System.out.println("");
         System.out.println("排序后：");

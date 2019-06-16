@@ -40,7 +40,7 @@ public class BubblingSort {
     }
 
     /**
-     *
+     * 第一次优化：
      * 下面开始考虑优化
      * 如果对于一个本身有序的序列。或者序列后面一大部分都是有序的序列，上面的算法就会浪费很多时间开销
      * 这里设置一个标志flag，如果这一趟发生了交换，则为true，否则为false。
@@ -79,6 +79,8 @@ public class BubblingSort {
     }
 
     /**
+     * bubbleSort2变体
+     *
      * 当然，使用for循环同样是都可以的。
      *
      * 对bubbleSort2进行改造：while循环改为for循环
@@ -88,11 +90,11 @@ public class BubblingSort {
     public static void bubbleSort21(int[] a, int n) {
         // flag记住是否发生了交换。开始的时候，默认需要交换
         boolean flag = true;
-        for (int i = 0; flag && i < n - 1; i ++) {
+        for (int i = 0; flag && i < n; i ++) {
             flag = false;
-            for (int j = 0; j < n -1; j ++) {
-                if (a[j] > a[j + 1]) {
-                    swap(a, j , j + 1);
+            for (int j = 1; j < n - i; j ++) {
+                if (a[j - 1] > a[j]) {
+                    swap(a, j - 1 , j);
 
                     flag = true;
                 }
@@ -101,6 +103,31 @@ public class BubblingSort {
     }
 
     /**
+     * bubbleSort2变体
+     * 当然bubbleSort21是比较当前元素的和前面的元素的大小。
+     * 我们也可以比较当前的元素和后面的元素的大小：
+     * @param a
+     * @param n
+     */
+    public static void bubbleSort22(int[] a, int n) {
+        System.out.println("   bubbleSort n: " + n);
+        // flag记住是否发生了交换。开始的时候，默认需要交换
+        boolean flag = true;
+        for (int i = 1; flag && i < n - 1; i ++) {
+            flag = false;
+            for (int j = 0; j < n - i; j ++) {
+                System.out.print("   bubbleSort j: " + j);
+                if (a[j] > a[j + 1]) {
+                    swap(a, j, j + 1);
+
+                    flag = true;
+                }
+            }
+        }
+    }
+
+    /**
+     * 第二次优化：
      * 再做进一步优化。
      * 比如，现在有一个包含100个数的数组。仅前面100个无序。后面900个都已排好序，且都大于前面100个
      * 数字。
@@ -119,9 +146,10 @@ public class BubblingSort {
 
         int j;
 
-        // 遍历尾边界
+        // 遍历的尾边界
         int k;
 
+        // 排序（交换）的尾边界
         // flag记录最后交换的位置，也就是排序的尾边界
         // 排序开始前，初始化flag尾边界是末尾
         // falg!=0表示发生过交换，flag==0表示未发生交换，循环排序结束
@@ -131,6 +159,7 @@ public class BubblingSort {
         while (flag > 0) {
 
             // k记录遍历的尾边界
+            // 本次遍历的尾边界是上次交换的尾边界。默认第一次为数组末尾。
             k = flag;
 
             // 每次进入排序/循环，但遍历交换前，将遍历尾边界初始化为0。
