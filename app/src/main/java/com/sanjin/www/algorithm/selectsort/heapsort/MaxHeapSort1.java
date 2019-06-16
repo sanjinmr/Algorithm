@@ -1,5 +1,8 @@
 package com.sanjin.www.algorithm.selectsort.heapsort;
 
+/**
+ * 大根堆的其他实现
+ */
 public class MaxHeapSort1 {
 	
 	// =============== S=大根堆排序 ===========================

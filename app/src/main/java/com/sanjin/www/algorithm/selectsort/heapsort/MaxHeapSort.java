@@ -1,6 +1,12 @@
 package com.sanjin.www.algorithm.selectsort.heapsort;
 
+/**
+ * 大根堆的标准实现
+ * note: 由于大根堆和体育竞赛中，选出前几名，的场景很相似。故，本算法注释中，将以体育赛事选择前几名举例。
+ */
 public class MaxHeapSort {
+
+    // ------- 辅助功能函数 ------------------------
 
     private int parent(int i) {return (i - 1) / 2;}
 
@@ -8,6 +14,15 @@ public class MaxHeapSort {
 
     private int right(int i) {return 2 * i + 2;}
 
+    // -------- 排序实现 ---------------------------
+
+    /**
+     * 将数组设置为大根堆（各小组比赛，得出第一名）
+     * @param array
+     * @param parent 本轮比赛的首位选手，即伪第一名
+     *               （可能不是所在小组第一名，需要检查，否不是第一名，则重比）
+     * @param length
+     */
     private void maxHeapAdjust(int[] array, int parent, int length) {
         int temp = array[parent]; // temp保存当前父节点
         int child = left(parent); // 先获得左孩子
@@ -15,12 +30,18 @@ public class MaxHeapSort {
         while (child < length) {
             // 如果有右孩子结点，并且右孩子结点的值大于左孩子结点，则选取右孩子结点
             if (child + 1 < length && array[child] < array[child + 1]) {
+                // 得出小组其他选手中分数最高者
                 child ++;
             }
-            // 如果父结点的值已经大于孩子结点的值，则直接结束
+            // 伪第一名和小组其余成绩最高者比较（如果父结点的值已经大于孩子结点的值，则直接结束）
+            // 因为默认下面的参赛者是各自小组的第一名，所以只需要比较本轮比赛的首位选手是否是他所在小组的
+            // 第一名（因为每一趟得出总的第一名后，将末尾的选手放到了第一名的位置，所以本轮比赛的首位选手
+            // 可能不是小组第一，如果不是第一，则需要再比一下）。
             if (temp >= array[child]) {
                 break;
             }
+
+            // 如果首位选手不是第一名，更新小组第一的选手身份，它变为下面小组第一，再去比较。
             // 把孩子结点的值赋给父结点
             array[parent] = array[child];
             // 选取孩子结点的左孩子结点,继续向下筛选
@@ -30,21 +51,48 @@ public class MaxHeapSort {
         array[parent] = temp;
     }
 
-    public void heapSort(int[] array) {
-        // 循环建立初始堆：从下往上排序
-        for (int i = parent(array.length - 1); i >= 0; i --) {
-			// 从尾部递增向上排序：大的上去，小的下来，尾部边界是数组末尾
-            maxHeapAdjust(array, i, array.length);
+    public void maxHeapAdjust1(int[] array, int parent, int length) {
+        int temp = array[parent];
+
+        for (int child = left(parent); child < length; child = left(child)) {
+            if (child + 1 < length && array[child] < array[child + 1]) {
+                child ++;
+            }
+
+            if (temp >= array[child]) {
+                break;
+            }
+
+            array[parent] = array[child];
+            parent = child;
         }
-        // 进行n-1次循环，完成排序：从上往下排序
-        for (int i = array.length - 1; i > 0; i --) {
-            // 最后一个元素和第一元素进行交换
+
+        array[parent] = temp;
+    }
+
+    public void heapSort(int[] array, int length) {
+
+        // 从末位开始，向上选择，得出第一名
+        // （循环建立初始堆：从下往上排序）
+        for (int i = parent(length - 1); i >= 0; i --) {
+			// 从尾部递增向上排序：大的上去，小的下来，尾部边界是数组末尾
+            maxHeapAdjust1(array, i, length);
+        }
+
+        // 拿出本轮的第一名，再接着选一个第一名，再拿出第一名，再接着选。。。从上往下选。
+        // （进行n-1次循环，完成排序：从上往下排序）
+        for (int i = length - 1; i > 0; i --) {
+
+            // 拿出本轮得出的第一名选手
+            // （最后一个元素和第一元素进行交换）
             int temp = array[i];
             array[i] = array[0];
             array[0] = temp;
-            // 筛选 R[0] 结点，得到i-1个结点的堆
-			// 整理，将剩余的元素整理成堆：每次从最上面开始排序，尾部递减
-            maxHeapAdjust(array, 0, i);
+
+            // 从剩下的选手选出第一名
+            // （筛选 R[0] 结点，得到i-1个结点的堆
+			// 整理，将剩余的元素整理成堆：每次从最上面开始排序，尾部递减）
+            maxHeapAdjust1(array, 0, i);
         }
     }
 }
