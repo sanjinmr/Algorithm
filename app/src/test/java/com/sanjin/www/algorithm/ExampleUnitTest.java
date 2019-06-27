@@ -1,6 +1,7 @@
 package com.sanjin.www.algorithm;
 
 import com.sanjin.www.algorithm.countsort.CountSort;
+import com.sanjin.www.algorithm.mergesort.MergeSort;
 import com.sanjin.www.algorithm.radixsort.RadixSortLSD;
 import com.sanjin.www.algorithm.radixsort.RadixSortMSD;
 import com.sanjin.www.algorithm.swapsort.quicksort.QuickSort;
@@ -56,7 +57,7 @@ public class ExampleUnitTest {
 
         //new MaxHeapSort().heapSort(a, a.length);
 
-        print(CountSort.countSort(a, a.length, 80));
+        //print(CountSort.countSort(a, a.length, 80));
     }
 
     private void print(int[] A) {
@@ -72,5 +73,15 @@ public class ExampleUnitTest {
     public void testLsd() {
         //RadixSortLSD.test2();
         RadixSortMSD.test2();
+    }
+
+    @Test
+    public void testMergeSort() {
+        int[] a = {9, 8, 7, 80, 30, 60, 11, 2, 40, 20, 11, 11, 6, 10, 50, 70, 3, 1, 0, 4, 5, 11};
+        int[] temp = new int[a.length];
+
+        MergeSort.mergeSort(a, 0, a.length - 1, temp);
+
+        print(a);
     }
 }
