@@ -1,5 +1,6 @@
 package com.sanjin.www.algorithm;
 
+import com.sanjin.www.algorithm.countsort.CountSort;
 import com.sanjin.www.algorithm.selectsort.heapsort.MaxHeapSort;
 import com.sanjin.www.algorithm.swapsort.bubblesort.BubblingSort;
 import com.sanjin.www.algorithm.swapsort.quicksort.QuickSort;
@@ -53,12 +54,16 @@ public class ExampleUnitTest {
 
         //BubblingSort.bubbleSort3(a, a.length);
 
-        new MaxHeapSort().heapSort(a, a.length);
+        //new MaxHeapSort().heapSort(a, a.length);
 
+        print(CountSort.countSort(a, a.length, 80));
+    }
+
+    private void print(int[] A) {
         System.out.println("");
         System.out.println("排序后：");
-        for (int i = 0; i < a.length; i ++) {
-            System.out.print(a[i] + "; ");
+        for (int i = 0; i < A.length; i ++) {
+            System.out.print(A[i] + "; ");
         }
         System.out.println("");
     }
