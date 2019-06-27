@@ -1,8 +1,8 @@
 package com.sanjin.www.algorithm;
 
 import com.sanjin.www.algorithm.countsort.CountSort;
-import com.sanjin.www.algorithm.selectsort.heapsort.MaxHeapSort;
-import com.sanjin.www.algorithm.swapsort.bubblesort.BubblingSort;
+import com.sanjin.www.algorithm.radixsort.RadixSortLSD;
+import com.sanjin.www.algorithm.radixsort.RadixSortMSD;
 import com.sanjin.www.algorithm.swapsort.quicksort.QuickSort;
 import com.sanjin.www.algorithm.insertsort.shellsort.AlgorithmShell1;
 
@@ -66,5 +66,11 @@ public class ExampleUnitTest {
             System.out.print(A[i] + "; ");
         }
         System.out.println("");
+    }
+
+    @Test
+    public void testLsd() {
+        //RadixSortLSD.test2();
+        RadixSortMSD.test2();
     }
 }
