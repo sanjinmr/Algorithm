@@ -4,6 +4,7 @@ import com.sanjin.www.algorithm.countsort.CountSort;
 import com.sanjin.www.algorithm.mergesort.MergeSort;
 import com.sanjin.www.algorithm.radixsort.RadixSortLSD;
 import com.sanjin.www.algorithm.radixsort.RadixSortMSD;
+import com.sanjin.www.algorithm.recall.RecallTest;
 import com.sanjin.www.algorithm.swapsort.quicksort.QuickSort;
 import com.sanjin.www.algorithm.insertsort.shellsort.AlgorithmShell1;
 
@@ -83,5 +84,10 @@ public class ExampleUnitTest {
         MergeSort.mergeSort(a, 0, a.length - 1, temp);
 
         print(a);
+    }
+
+    @Test
+    public void testRecall() {
+        RecallTest.test();
     }
 }
