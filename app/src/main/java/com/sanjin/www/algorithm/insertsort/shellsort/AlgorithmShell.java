@@ -7,6 +7,7 @@ package com.sanjin.www.algorithm.insertsort.shellsort;
  * desc: 希尔排序
  * note: 希尔排序实际上就是对直接插入排序的一个升级：
  * 将数组分为若干组进行直接插入排序，只是将插入排序的步长改为而已！
+ * 希尔排序退化到极点，即步长只是1，就等于直接插入排序了。
  */
 public class AlgorithmShell {
 
