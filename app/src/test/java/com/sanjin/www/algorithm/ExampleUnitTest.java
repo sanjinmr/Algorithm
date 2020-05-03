@@ -7,6 +7,7 @@ import com.sanjin.www.algorithm.radixsort.RadixSortMSD;
 import com.sanjin.www.algorithm.recall.RecallTest;
 import com.sanjin.www.algorithm.swapsort.quicksort.QuickSort;
 import com.sanjin.www.algorithm.insertsort.shellsort.AlgorithmShell1;
+import com.sanjin.www.algorithm.swapsort.quicksort.QuickSort2;
 
 import org.junit.Test;
 
@@ -40,7 +41,7 @@ public class ExampleUnitTest {
 
     @Test
     public void quickSort() {
-        new QuickSort().test();
+        new QuickSort2().test();
     }
 
     @Test
