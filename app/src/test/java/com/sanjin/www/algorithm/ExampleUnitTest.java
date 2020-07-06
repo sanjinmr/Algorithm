@@ -17,8 +17,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
+import static java.lang.Thread.sleep;
 import static org.junit.Assert.*;
 
 /**
@@ -219,5 +221,82 @@ public class ExampleUnitTest {
             System.out.println(Arrays.toString(bytes[i]) + " length: " + bytes[i].length);
         }
 
+    }
+
+    @Test
+    public void test() {
+        byte[] bytes = "".getBytes(Charset.defaultCharset());
+        System.out.println("bytes: " + Arrays.toString(bytes));
+        System.out.println("bytes.length: " + bytes.length);
+    }
+
+    @Test
+    public void testFor() throws InterruptedException {
+        final List<String> list = new ArrayList<>();
+        for (int i = 0;i < 100; i ++) {
+            list.add("content-" + i);
+        }
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                synchronized (list) {
+                    Iterator<String> iterator = list.iterator();
+                    while (iterator.hasNext()) {
+                        String str = iterator.next();
+                        System.out.print("str: " + str);
+                        iterator.remove();
+                        System.out.println("   list-size: " + list.size());
+                    }
+                }
+            }
+        }).start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                synchronized (list) {
+                    list.remove("content-50");
+                    System.out.print("  NewThread-list-size: " + list.size() + "  ");
+                }
+            }
+        }).start();
+
+    }
+
+    @Test
+    public void testList() {
+
+        List<String> list = new ArrayList<>();
+        List<String> list1 = new ArrayList<>();
+        list.add("張三1");
+        list.add("張三2");
+        list.add("張三3");
+        list.add("張三4");
+        list.add("張三5");
+        list.add("張三6");
+        for (int i = 0; i < list.size(); i ++) {
+            if ("張三4".equals(list.get(i))) {
+                list1.add(0, list.get(i));
+            } else {
+                list1.add(list.get(i));
+            }
+        }
+
+        System.out.println(list1);
+    }
+
+    @Test
+    public void testArray() {
+        int[] nums = new int[20];
+
+        nums[0] = 0;
+        nums[1] = 1;
+        nums[2] = 2;
+        nums[3] = Integer.parseInt(null);
+
+        for (int i = 0; i < 20; i ++) {
+            System.out.print(nums[i] + " 、 ");
+        }
     }
 }
