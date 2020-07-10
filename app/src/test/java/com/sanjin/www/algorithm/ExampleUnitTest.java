@@ -174,14 +174,14 @@ public class ExampleUnitTest {
 
         byte[][] bytes = new byte[divide][];
 
-        for (int i = 0; i < divide; i ++) {
+        for (int i = 0; i < divide; i++) {
             if (i * targ + targ < size) {
                 bytes[i] = new byte[targ];
             } else {
                 bytes[i] = new byte[size - ((i - 1) * targ + targ)];
             }
 
-            for (int j = 0; j < targ; j ++) {
+            for (int j = 0; j < targ; j++) {
                 if (i * targ + j < size) {
                     bytes[i][j] = rawArray[i * targ + j];
                 }
@@ -233,7 +233,7 @@ public class ExampleUnitTest {
     @Test
     public void testFor() throws InterruptedException {
         final List<String> list = new ArrayList<>();
-        for (int i = 0;i < 100; i ++) {
+        for (int i = 0; i < 100; i++) {
             list.add("content-" + i);
         }
 
@@ -275,7 +275,7 @@ public class ExampleUnitTest {
         list.add("張三4");
         list.add("張三5");
         list.add("張三6");
-        for (int i = 0; i < list.size(); i ++) {
+        for (int i = 0; i < list.size(); i++) {
             if ("張三4".equals(list.get(i))) {
                 list1.add(0, list.get(i));
             } else {
@@ -295,17 +295,8 @@ public class ExampleUnitTest {
         nums[2] = 2;
         nums[3] = Integer.parseInt(null);
 
-        for (int i = 0; i < 20; i ++) {
+        for (int i = 0; i < 20; i++) {
             System.out.print(nums[i] + " 、 ");
         }
-
-
-
-
-
-
-
-
-
     }
 }

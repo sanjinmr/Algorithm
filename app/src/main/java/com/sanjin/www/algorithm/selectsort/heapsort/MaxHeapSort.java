@@ -20,7 +20,7 @@ public class MaxHeapSort {
      * 将数组设置为大根堆（各小组比赛，得出第一名）
      * @param a
      * @param parent 本轮比赛的首位选手，即伪第一名
-     *               （可能不是所在小组第一名，需要检查，否不是第一名，则重比）
+     *               （可能不是所在小组第一名，需要检查，若不是第一名，则重比）
      * @param n
      */
     private void maxHeapAdjust(int[] a, int parent, int n) {
