@@ -11,6 +11,8 @@ import com.sanjin.www.algorithm.swapsort.quicksort.QuickSort2;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 /**
@@ -60,6 +62,35 @@ public class ExampleUnitTest {
         //new MaxHeapSort().heapSort(a, a.length);
 
         //print(CountSort.countSort(a, a.length, 80));
+
+        int n = a.length;
+        simpleSelectSort1(a, n);
+
+        System.out.println(Arrays.toString(a));
+    }
+
+    private void simpleSelectSort1(int[] a, int n) {
+        // 循环：i表示待排序元素； 正序；
+        // 区间：(0, n]; step: i ++
+        for (int i = 0; i < n; i ++) {
+            int minIndex = i;
+
+            // 寻找
+            // 循环： j表示本轮选择时剩余的待排序元素；正序
+            // 区间： (i, n]；step: j ++
+            for (int j = i; j < n; j ++) {
+                if (a[j] < a[minIndex]) {
+                    minIndex = j;
+                }
+            }
+
+            // 交换
+            if (minIndex != i) {
+                int temp = a[i];
+                a[i] = a[minIndex];
+                a[minIndex] = temp;
+            }
+        }
     }
 
     private void print(int[] A) {
