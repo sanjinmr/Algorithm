@@ -71,7 +71,7 @@ public class AlgorithmShell {
         for (int gap = n / 2; gap > 0; gap = gap / 2) { // shell分组
             for (int gi = 0; gi < gap; gi ++) { // 遍历每一组
                 for (int i = gi + gap; i < n; i = i + gap) { // 对每一组进行直接插入排序
-                    for (j = i - gap; j > 0; j = j - gap) {
+                    for (j = i - gap; j >= 0; j = j - gap) {
                         if (a[j] <= a[i]) {
                             break;
                         }
