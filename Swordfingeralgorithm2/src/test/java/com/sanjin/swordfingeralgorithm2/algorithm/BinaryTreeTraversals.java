@@ -107,12 +107,37 @@ public class BinaryTreeTraversals {
         if (node != null) {
             printNode(node.mValue);
             if (node.pLeft != null) {
-                queue.add(node.pLeft);
+                queue.offer(node.pLeft);
             }
             if (node.pRight != null) {
-                queue.add(node.pRight);
+                queue.offer(node.pRight);
             }
             bfsTraversal();
+        }
+    }
+
+    /**
+     * 按层遍历二叉树 -- 循环
+     * @param root
+     */
+    public void bfsTraversalLoop(BinaryTreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            BinaryTreeNode node = queue.poll();
+            if (node != null) {
+                printNode(node.mValue);
+                if (node.pLeft != null) {
+                    queue.offer(node.pLeft);
+                }
+                if (node.pRight != null) {
+                    queue.offer(node.pRight);
+                }
+            }
         }
     }
 
@@ -154,6 +179,7 @@ public class BinaryTreeTraversals {
 
 
     // 遍历二叉树
+    @Deprecated
     private static void traversalTrees(BinaryTreeNode rootNode) {
         printNode(rootNode.mValue);
         if (rootNode.pLeft != null) {

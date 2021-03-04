@@ -11,6 +11,12 @@ package linkedlist;
  */
 public class LinkedListAlgo {
 
+  public static class ListNode {
+ 	    int val;
+ 	    ListNode next;
+ 	    ListNode(int x) { val = x; }
+ 	}
+
   // 单链表反转
   public static Node reverse(Node list) {
     Node curr = list, pre = null;
