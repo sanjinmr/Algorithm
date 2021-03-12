@@ -98,6 +98,11 @@ public class GraphUndirected {
 
     private boolean found = false;
 
+    /**
+     * 深度优先搜索
+     * @param s
+     * @param t
+     */
     public void dfs(int s, int t) {
         found = false;
 
