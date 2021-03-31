@@ -17,8 +17,8 @@ public class SmallchangeDP {
     private int[][] num = new int[w + 1][w + 1];
 
     public void test() {
-        //algo(0, 0);
-        algo1(w, 0);
+        //bruteForceSearch(0, 0);
+        stateTransferEquation(w, 0);
         System.out.println("count: " + minCount);
     }
 
@@ -28,7 +28,7 @@ public class SmallchangeDP {
      * @param cw
      * @param curCount
      */
-    private void algo(int cw, int curCount) {
+    private void bruteForceSearch(int cw, int curCount) {
         System.out.println("algo cw: " + cw + " curCount: " + curCount);
 
         if (cw > w) {
@@ -54,9 +54,9 @@ public class SmallchangeDP {
 
         for (int i = 0; i < values.length; i ++) {
             // 加入当前的
-            algo(cw + values[i], curCount + 1);
+            bruteForceSearch(cw + values[i], curCount + 1);
             // 不加入当前的
-            algo(cw, curCount);
+            bruteForceSearch(cw, curCount);
         }
     }
 
@@ -66,7 +66,7 @@ public class SmallchangeDP {
      * @param w1
      * @param curCount
      */
-    private void algo1(int w1, int curCount) {
+    private void stateTransferEquation(int w1, int curCount) {
 
         if (w1 > w) {
             return;
@@ -96,7 +96,7 @@ public class SmallchangeDP {
 
         for (int i = 0; i < values.length; i ++) {
             // 探索f(w-vi)+1的值
-            algo1(w1 - values[i], curCount + 1);
+            stateTransferEquation(w1 - values[i], curCount + 1);
         }
     }
 }
