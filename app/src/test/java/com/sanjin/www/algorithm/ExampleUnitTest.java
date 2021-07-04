@@ -8,6 +8,7 @@ import com.sanjin.www.algorithm.recall.RecallTest;
 import com.sanjin.www.algorithm.swapsort.quicksort.QuickSort;
 import com.sanjin.www.algorithm.insertsort.shellsort.AlgorithmShell1;
 import com.sanjin.www.algorithm.swapsort.quicksort.QuickSort2;
+import com.sanjin.www.algorithm.test.StockQues;
 import com.sanjin.www.algorithm.trees.BST;
 
 import org.junit.Test;
@@ -129,5 +130,10 @@ public class ExampleUnitTest {
     @Test
     public void testBST() {
         BST.test();
+    }
+
+    @Test
+    public void test11() {
+        StockQues.test();
     }
 }
